@@ -11,14 +11,32 @@ header.header
           a(href="#") Projects
         li
           a(href="#") Press & Publications
+
         li
-          a(href="#")
+          a(href="#") Projects
+        li
+          a(href="#") Press & Publications
+        li
+          a(href="#") Projects
+        li
+          a(href="#") Press & Publications
+        //- li.nav-list__drop
+        //-   a(href="#") . . .
+        //-   ul
+        //-     li
+        //-       a(href="#") Public speaking
+        //-     li
+        //-       a(href="#") Consulting
+
       ul.social.header__social
-        li
+        li.social__item.social__item--linkedin
           a(href="#")
-            +icon()
+            +icon('linkedin', 'social__icon')
             span Linkedin
-        li
+        li.social__item.social__item--twitter
           a(href="#")
-            +icon()
+            +icon('twitter', 'social__icon')
             span Twitter
+
+    button.nav-toggle
+      .nav-toggle__line

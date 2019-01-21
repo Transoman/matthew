@@ -15,6 +15,46 @@ jQuery(document).ready(function($) {
     }
   });
 
+  var hiddenItemNav = function() {
+    var nav = $('.nav-list');
+    var navWidth = nav.width();
+    var allWidth = 0;
+    var hiddenWidth = 0;
+    var maxWidth = 500;
+    var arrIndexHidden = [];
+  
+    if (navWidth > maxWidth) {
+      nav.find('li').each(function(i, el) {
+        
+        if (allWidth + $(this).next().width() < maxWidth) {
+          allWidth += $(this).width();
+        }
+        else {
+            $(this).hide();
+            hiddenWidth += $(this).width();
+            arrIndexHidden.push(i);
+        }
+      });
+
+      nav.append('<li class="nav-list__drop"><a href="#">. . .</a></li>');
+    }
+    
+  
+    // $('.nav-list__drop a').click(function(e) {
+    //   e.preventDefault();
+    //   arrIndexHidden.forEach(function(item, i, arrIndexHidden) {
+    //     console.log(item)
+    //   });
+    //   // nav.css('transform', 'translateX(-'+ hiddenWidth +'px)');
+    // });
+  }
+
+  hiddenItemNav();
+
+  $(window).resize(function() {
+    hiddenItemNav();
+  });
+
   // SVG
   svg4everybody({});
 

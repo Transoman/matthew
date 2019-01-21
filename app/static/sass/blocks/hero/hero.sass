@@ -1,0 +1,87 @@
+.hero
+  background: url('../images/general/hero-bg.jpg') no-repeat center top / cover
+  +r(767)
+    background-position: 70% top
+  &__container
+    display: flex
+    padding: 0 15px
+    +r(767)
+      max-width: 540px
+      margin: 0 auto
+    +r(576)
+      max-width: none
+  &__img
+    position: relative
+    width: 31.77%
+    margin-left: -15px
+    background: $accent url('../images/general/hero-block-bg.png') no-repeat center / cover
+    +r(992)
+      width: 36.77%
+    +r(767)
+      display: none
+    img
+      position: absolute
+      right: -50%
+      bottom: 0
+      max-width: none
+      +r(992)
+        right: -85%
+  &__content
+    max-width: 570px
+    padding: 200px 0 145px
+    // margin-left: 330px
+    margin-left: 17.18%
+    color: $mine-shaft
+    +r(1440)
+      // margin-left: 230px
+    +r(1200)
+      margin-left: 14%
+    +r(767)
+      max-width: none
+      margin: 0
+      padding: 130px 0 110px
+    p
+      margin-bottom: 30px
+      font-size: 30px
+      font-weight: 500
+      +r(767)
+        margin-bottom: 20px
+        font-size: 18px
+      &:before
+        content: ''
+        display: block
+        width: 80px
+        height: 8px
+        margin-bottom: 30px
+        background: url('../images/general/line.svg') no-repeat center / cover
+        +r(767)
+          margin-bottom: 20px
+    h1
+      position: relative
+      margin-bottom: 70px
+      font-size: 72px
+      +r(992)
+        font-size: 52px
+      +r(767)
+        margin-bottom: 50px
+        font-size: 48px
+      +r(480)
+        br
+          display: none
+      &:after
+        content: ''
+        position: absolute
+        width: 350px
+        height: 200px
+        opacity: 0.15
+        right: -13%
+        top: 50%
+        transform: translateY(-50%)
+        background: url('../images/general/sea.svg') no-repeat center / cover
+        +r(767)
+          display: none
+    .btn
+      max-width: 300px
+      width: 100%
+      +r(767)
+        max-width: 270px

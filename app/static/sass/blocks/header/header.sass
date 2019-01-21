@@ -1,0 +1,39 @@
+@import 'logo'
+
+.header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  padding: 30px 0
+  z-index: 10
+  +r(767)
+    padding: 15px 0
+  .container
+    display: flex
+    align-items: center
+  &__nav
+    margin-left: auto
+  &__social
+    margin-left: 55px
+    +r(1200)
+      & > *:not(:last-child)
+        margin-right: 10px
+    .social__item
+      &--linkedin
+        a
+          font-size: 16px
+          color: $deep-cerulean
+        svg
+          +size(15px)
+          fill: $deep-cerulean
+      &--twitter
+        a
+          font-size: 16px
+          color: $picton-blue
+        svg
+          +size(15px)
+          fill: $picton-blue
+    span
+      +r(1200)
+        display: none
