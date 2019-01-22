@@ -1,1 +1,69 @@
-// Form
+.form
+  &-group
+    position: relative
+    margin-bottom: 10px
+    &:last-child
+      margin-bottom: 0
+  &__field
+    width: 100%
+    padding: 19px 25px
+    border: 1px solid $melrose
+    border-radius: 6px
+    color: $main-color
+    +trans
+    +r(767)
+      padding: 12px 15px
+      font-size: 14px
+    &::placeholder
+      color: $dusty-gray
+    &:focus
+      outline: none
+      border-color: $accent
+  &__row
+    display: flex
+    & > *:not(:last-child)
+      margin-right: 30px
+  &__radio
+    @extend .visually-hidden
+    &:checked ~ .form__label--radio
+      &::before
+        border-color: $accent
+      &::after
+        opacity: 1
+        visibility: visible
+  &__label
+    margin: 0
+    font-size: 18px
+    font-weight: 500
+    line-height: 1
+    cursor: pointer
+    +r(767)
+      font-size: 14px
+    &--radio
+      position: relative
+      padding-left: 25px
+      &::before
+        content: ''
+        position: absolute
+        top: 1pxs
+        left: 0
+        +size(15px)
+        border-radius: 50%
+        border: 2px solid $nodel
+        +trans
+      &::after
+        content: ''
+        position: absolute
+        left: 5px
+        top: 5px
+        +size(5px)
+        border-radius: 50%
+        background-color: $accent
+        opacity: 0
+        visibility: hidden
+  p
+    margin-top: 20px
+    font-size: 18px
+    font-weight: 500
+    +r(767)
+      font-size: 14px

@@ -15,6 +15,22 @@ jQuery(document).ready(function($) {
     }
   });
 
+  // Fixed header
+  function fixedHeader() {
+    if($(this).scrollTop() > 50) {
+      $('.header').addClass('fixed');
+    }
+    else {
+      $('.header').removeClass('fixed');
+    }
+  }
+
+  fixedHeader();
+
+  $(window).scroll(function() {
+    fixedHeader();
+  });
+
   var hiddenItemNav = function() {
     var nav = $('.nav-list');
     var navWidth = nav.width();

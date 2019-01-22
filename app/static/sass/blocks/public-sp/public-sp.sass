@@ -1,0 +1,127 @@
+.public-sp
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-column-gap: 0
+  +r(1200)
+    grid-template-columns: repeat(3, 1fr)
+  +r(992)
+    grid-template-columns: repeat(2, 1fr)
+  +r(767)
+    display: block
+  &__item
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 30px
+    background:
+      repeat: no-repeat
+      position: center
+      size: cover
+      color: #000
+    color: $hawkes-blue
+    z-index: 1
+    cursor: pointer
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-color: rgba($accent, 0.8)
+      opacity: 0
+      visibility: hidden
+      +trans
+      z-index: -1
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      display: none
+      background-color: rgba(#000, 0.3)
+      +trans
+      z-index: -1
+      +r(767)
+        display: block
+    &:nth-child(1)
+      grid-column-start: 1
+      grid-column-end: 3
+      grid-row-start: 1
+      grid-row-end: 3
+      +r(1200)
+        grid-column-end: 2
+      +r(992)
+        grid-column-end: 3
+      .public-sp
+        &__suptitle
+          font-size: 20px
+          +r(767)
+            font-size: 14px
+        &__title
+          font-size: 48px
+          +r(1200)
+            font-size: 38px
+          +r(767)
+            font-size: 26px
+    &:hover
+      &::before
+        opacity: 1
+        visibility: visible
+      .public-sp
+        &__content
+          opacity: 1
+          visibility: visible
+        &__link
+          opacity: 0
+          visibility: hidden
+      
+  &__link
+    position: absolute
+    display: none
+    padding-bottom: 5px
+    font-size: 14px
+    font-weight: 600
+    color: #fff
+    background: url(../images/general/line-white.svg) repeat-x center bottom / auto 6px
+    +trans
+    +r(767)
+      display: block
+  &__content
+    opacity: 0
+    visibility: hidden
+    +trans
+    +r(767)
+      font-size: 12px
+    img
+      margin-bottom: 30px
+      max-width: 170px
+      +r(767)
+        max-width: 85px
+  &__suptitle
+    margin-bottom: 10px
+    font-size: 18px
+    color: #fff
+    font-weight: 600
+    +r(767)
+      font-size: 14px
+  &__title
+    font-size: 38px
+    line-height: 1
+    color: #fff
+    +r(1440)
+      font-size: 30px
+    +r(767)
+      font-size: 26px
+  .btn
+    +r(767)
+      text-align: left
+      padding: 0 0 5px
+      background: url(../images/general/line-white.svg) repeat-x center bottom / auto 6px
+      border-radius: 0
+      box-shadow: none
+      &:before
+        display: none

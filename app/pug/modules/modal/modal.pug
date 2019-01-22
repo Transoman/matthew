@@ -1,0 +1,31 @@
+.modal#engagement
+  button.modal__close.engagement_close
+
+  h2.modal__title Book an Engagement
+  form.form(action="#")
+    .form-group
+      input(type="text", name="name", required, placeholder="Your name").form__field
+    .form-group
+      input(type="text", name="name_event", required, placeholder="Name of event").form__field
+    .form-group
+      input(type="date", name="date_event", required, placeholder="Date of event").form__field
+    .form-group
+      input(type="text", name="topic", required, placeholder="Topic of presentation / panel").form__field
+    p Flight and hotel accommodation provided?
+    .form__row
+      .form-group
+        input(type="radio", name="fly_hotel", value="yes", id="fly-yes", checked).form__radio
+        label(for="fly-yes").form__label.form__label--radio Yes
+      .form-group
+        input(type="radio", name="fly_hotel", value="no", id="fly-no").form__radio
+        label(for="fly-no").form__label.form__label--radio No
+    p Paid event?
+    .form__row
+      .form-group
+        input(type="radio", name="paid", value="yes", id="paid-yes", checked).form__radio
+        label(for="paid-yes").form__label.form__label--radio Yes
+      .form-group
+        input(type="radio", name="paid", value="no", id="paid-no").form__radio
+        label(for="paid-no").form__label.form__label--radio No
+    .form-group.form-group--btn
+      button(type="submit").btn.form__btn Book an Engagement
