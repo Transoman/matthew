@@ -5,8 +5,19 @@
     position: fixed
     top: 0
     right: 0
+    flex-direction: column
+    align-items: flex-start
     height: 100%
-    display: none
+    width: 230px
+    padding: 50px 15px
+    background-color: #fff
+    transform: translateX(100%)
+    z-index: 10
+    +trans
+    box-shadow: 0 0 10px rgba(#000, 0.1)
+    &.open
+      transform: translateX(0)
+
 
 .nav-list
   margin: 0
@@ -16,6 +27,10 @@
   align-items: center
   // overflow: hidden
   max-width: 600px
+  +r(992)
+    flex-direction: column
+    align-items: flex-start
+    margin-bottom: 20px
   & > *:not(:last-child)
     margin-right: 30px
   li
