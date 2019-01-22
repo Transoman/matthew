@@ -31,6 +31,17 @@ jQuery(document).ready(function($) {
     fixedHeader();
   });
 
+  // Parallax
+  function simpleParallax(intensity, element) {
+    $(window).scroll(function() {
+      var scrollTop = $(window).scrollTop();
+      var imgPos = scrollTop / intensity + 'px';
+      element.css('transform', 'translateY(' + imgPos + ')');
+    });
+  }
+  
+  simpleParallax(-5, $('.parallax-1'));
+
   var hiddenItemNav = function() {
     var nav = $('.nav-list');
     var navWidth = nav.width();

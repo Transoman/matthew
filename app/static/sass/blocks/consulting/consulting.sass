@@ -1,0 +1,140 @@
+.consulting
+  padding: 90px 0 100px
+  .container
+    position: relative
+    display: flex
+    justify-content: space-between
+  &__wrap
+    max-width: 530px
+    padding-right: 30px
+    +r(992)
+      max-width: 350px
+    +r(767)
+      max-width: none
+      padding-right: 0
+  &__content
+    position: relative
+    &:before
+      content: ''
+      position: absolute
+      top: 160px
+      right: -370px
+      width: 350px
+      height: 200px
+      background: url('../images/general/sea.svg') no-repeat center top / contain
+      opacity: 0.1
+      z-index: -1
+      +r(1200)
+        top: 130px
+        right: -210px
+      +r(767)
+        width: 170px
+        height: 100px
+        top: 230px
+        right: -130px
+  &__name
+    font-size: 36px
+    +r(767)
+      font-size: 30px
+  &__position
+    color: $accent
+    font-weight: 600
+    +r(767)
+      font-size: 14px
+  &__work
+    &::before
+      content: ''
+      display: block
+      width: 80px
+      height: 8px
+      margin-bottom: 20px
+      background: url('../images/general/line.svg') no-repeat center / auto 8px
+    h4
+      margin-bottom: 0
+      font-size: 30px
+      +r(767)
+        font-size: 24px
+    .consulting__position
+      margin-bottom: 5px
+  &__date
+    font-size: 14px
+  &__row
+    +r(767)
+      position: relative
+  &__img
+    position: absolute
+    right: 15px
+    top: 0
+    max-width: 470px
+    z-index: 1
+    +r(1200)
+      max-width: 400px
+    +r(992)
+      max-width: 340px
+    +r(767)
+      position: absolute
+      right: 0
+      top: 0
+      width: 340px
+      height: 525px
+      img
+        width: inherit
+        height: inherit
+        object-fit: cover
+    +r(576)
+      right: -15px
+      width: 170px
+  &__skill
+    position: relative
+    display: flex
+    margin-bottom: 50px
+    z-index: 2
+    +r(767)
+      flex-direction: column
+    & > *:not(:last-child)
+      margin-right: 50px
+      +r(767)
+        margin-right: 0
+        margin-bottom: 25px
+    &-item
+      position: relative
+      padding-right: 50px
+      +r(767)
+        padding-right: 0
+        padding-top: 25px
+      &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: 120%
+        width: 80px
+        height: 8px
+        background: url('../images/general/line.svg') no-repeat center / auto 8px
+        opacity: 0.1
+        transform: rotate(90deg) translateX(-50%)
+        transform-origin: 100% 0
+        +r(767)
+          transform-origin: 50% 50%
+          transform: none
+          right: auto
+          bottom: 0
+          left: 0
+          right: auto
+      &:last-child
+        &::after
+          display: none
+    &-number
+      margin-bottom: 5px
+      font-family: $bn
+      font-size: 72px
+      color: $sunset-orange
+      line-height: 1
+    &-title
+      margin: 0
+      font-weight: 600
+      color: $mine-shaft
+      +r(767)
+        font-size: 16px
+  .btn
+    max-width: 300px
+    width: 100%
