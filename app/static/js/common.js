@@ -66,6 +66,7 @@ jQuery(document).ready(function($) {
   simpleParallax(-5, $('.parallax-1'));
   simpleParallax(-5, $('.parallax-2'));
   simpleParallax(5, $('.parallax-3'));
+  simpleParallax(5, $('.parallax-4'));
 
   // Show more project
   var showMoreProject = function() {
