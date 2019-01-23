@@ -30,9 +30,9 @@ body
   font-size: 16px
   line-height: 1.5
   color: $main-color
-  background-color: $alabaster
   overflow-x: hidden
   +r(767)
+    background-color: $alabaster
     font-size: 14px
 
 img
@@ -58,8 +58,13 @@ h2
   +r(767)
     font-size: 48px
 
+b, strong
+  font-weight: 600
+  color: $mine-shaft
+
 section
   position: relative
+  z-index: 1
 
 /* Hidden element */
 .visually-hidden
@@ -128,3 +133,15 @@ section
     background-color: #e5e5e5
     cursor: not-allowed
     color: #fff
+  &--trans
+    border: 1px solid $accent
+    background: none
+    color: $accent
+    box-shadow: none
+    &-red
+      border-color: $sunset-orange
+      color: $sunset-orange
+      &:before
+        background-color: $sunset-orange
+      &:hover, &:focus
+        box-shadow: 0 10px 30px rgba($sunset-orange, 0.3)

@@ -36,12 +36,13 @@
     position: absolute
     right: 10px
     top: 8px
-    width: 20px
-    height: 20px
+    width: 30px
+    height: 30px
     padding: 0 0 20px
     margin: 0
     outline: 0
-    border: none
+    border: 3px solid $silver
+    border-radius: 50%
     background: 0 0
     z-index: 101
     cursor: pointer
@@ -49,21 +50,30 @@
     white-space: nowrap
     overflow: hidden
     transition: all .25s ease
+    +r(767)
+      border-color: $accent
     &::after, &::before
       content: ''
       position: absolute
-      left: 0
+      left: 5px
       display: block
-      height: 2px
-      width: 100%
+      height: 3px
+      width: 60%
       background: #BDBDBD
       transition: all .25s ease
+      +trans
+      +r(767)
+        background-color: $accent
     &::before
       top: 10px
       transform: rotate(45deg)
     &::after
       top: 10px
       transform: rotate(-45deg)
+    &:hover
+      border-color: $sunset-orange
+      &:before, &:after
+        background-color: $sunset-orange
     &:focus
       outline: none
   &__title

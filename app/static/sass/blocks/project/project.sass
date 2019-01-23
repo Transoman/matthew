@@ -1,0 +1,250 @@
+.project
+  padding: 100px 0
+  background-color: $alabaster-2
+  +r(767)
+    padding: 70px 0 30px
+  .container
+    position: relative
+  &__head
+    display: flex
+    align-items: center
+    margin-bottom: 60px
+    max-width: 700px
+    +r(1200)
+      max-width: 600px
+    +r(992)
+      flex-direction: column
+      align-items: flex-start
+    +r(767)
+      margin-bottom: 50px
+  .section-title
+    margin-bottom: 0
+    margin-right: 40px
+    +r(992)
+      margin-right: 0
+      margin-bottom: 20px
+  &__desc
+    position: relative
+    margin: 0
+    font-size: 24px
+    padding-left: 40px
+    line-height: 1.4
+    +r(992)
+      padding-left: 0
+      padding-top: 20px
+    +r(767)
+      font-size: 18px
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: -7px
+      width: 80px
+      height: 8px
+      background: url('../images/general/line.svg') no-repeat center top / auto 8px
+      opacity: 0.2
+      transform: rotate(90deg)
+      transform-origin: 0 0
+      +r(992)
+        transform: none
+  &__more
+    display: block
+    max-width: 200px
+    margin: 0 auto
+    +r(767)
+      border: 0
+      padding: 0 0 5px
+      display: inline-block
+      background: url('../images/general/line.svg') repeat-x center bottom / auto 4px
+      border-radius: 0
+      &::before
+        display: none
+      &:hover, &:focus
+        color: $accent
+        opacity: 0.8
+        box-shadow: none
+  &__book
+    position: absolute
+    right: 15px
+    top: 10px
+    +r(767)
+      position: relative
+      right: auto
+      top: auto
+      display: block
+      max-width: 220px
+      margin: 30px auto 0
+
+.project-list
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-column-gap: 0
+  margin-bottom: 50px
+  +r(992)
+    grid-template-columns: repeat(2, 1fr)
+  +r(767)
+    display: block
+  +r(576)
+    margin-right: -15px
+    margin-left: -15px
+  &__item
+    position: relative
+    padding: 15px
+    background:
+      repeat: no-repeat
+      position: center
+      size: cover
+      color: #000
+    color: $hawkes-blue
+    z-index: 1
+    cursor: pointer
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-color: rgba($accent, 0.95)
+      opacity: 0
+      visibility: hidden
+      +trans
+      z-index: -1
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      display: none
+      background-color: rgba(#000, 0.3)
+      +trans
+      z-index: -1
+      +r(767)
+        display: block
+    &:nth-child(1)
+      grid-row-start: 1
+      grid-row-end: 3
+    &:hover
+      &::before
+        opacity: 1
+        visibility: visible
+      .project-list
+        &__inner
+          opacity: 1
+          visibility: visible
+        &__link
+          opacity: 0
+          visibility: hidden
+  &__link
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    display: none
+    padding-bottom: 5px
+    font-size: 14px
+    font-weight: 600
+    color: #fff
+    background: url(../images/general/line-white.svg) repeat-x center bottom / auto 6px
+    +trans
+    +r(767)
+      display: block
+  &__inner
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    padding: 20px 40px
+    border: 5px solid rgba(#000, 0.15)
+    opacity: 0
+    visibility: hidden
+    +trans
+    z-index: 1
+    +r(1200)
+      padding: 20px
+    &::before
+      content: ''
+      position: absolute
+      bottom: 20px
+      right: 20px
+      width: 170px
+      height: 100px
+      background: url(../images/general/sea.svg) no-repeat center / contain
+      opacity: 1
+      z-index: -1
+      +r(767)
+        opacity: 0.3
+  &__content
+    font-size: 14px
+    img
+      max-width: 70px
+      margin-bottom: 20px
+  &__title
+    font-size: 30px
+    color: #fff
+  &__view-detail
+    display: inline-block
+    margin-top: 10px
+    padding-bottom: 5px
+    font-weight: 600
+    color: #fff
+    background: url(../images/general/line-white.svg) repeat-x center bottom / auto 6px
+    &:hover, &:focus
+      color: inherit
+
+.project-modal
+  padding: 0
+  max-width: 1020px
+  +r(1050)
+    max-width: none
+    width: calc(100% - 30px)
+  &__wrap
+    display: flex
+    flex-wrap: wrap
+  &__slider
+    width: 50%
+    +r(767)
+      width: 100%
+      max-height: 300px
+    &-item
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+  &__content
+    margin-bottom: 15px
+    img
+      margin-bottom: 25px
+    &-wrap
+      width: 50%
+      padding: 55px 40px
+      font-size: 14px
+      +r(992)
+        padding: 25px
+      +r(767)
+        width: 100%
+        padding: 25px 15px
+      ul
+        margin: 0
+        padding: 0
+        list-style: none
+        & > *:not(:last-child)
+          margin-bottom: 5px
+        li
+          &:before
+            content: ''
+            display: inline-block
+            vertical-align: middle
+            margin-right: 5px
+            +size(4px)
+            background-color: $accent
+            border-radius: 50%
+    &-title
+      margin-bottom: 10px
+      font-size: 30px
+  &__note
+    h4
+      font-size: 24px
