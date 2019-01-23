@@ -1,0 +1,84 @@
+section.resume
+  .container
+    h2.section-title Resume
+
+    .resume__left
+
+      .resume__content
+        h3 Hello, I'm Matthew.
+        p I'm the <strong><span>Founder & CEO of Blossom Finance.</span></strong> My specialties are product management, software engineering, UX/UI design, and blockchain (mostly Ethereum). You can also find me on Twitter.
+        p I'm a recurring public speaker (English and Indonesian) on the topics of Blockchain, FinTech, and Islamic Finance. I've spoken in front of audiences in the USA, Bahrain, UAE, Singapore, Malaysia, and Indonesia.
+        p
+          strong I LOVE BUILDING TO SOLVE PROBLEMS
+        p Professionally, my background is in software engineering, product management, and user experience. I've done all of these things in different combinations and roles. I've worked for several financial technology ("FinTech") startups, and before that I was in consumer electronics. I attended the Boost incubator program. Have a look at my resume or check out my my LinkedIn profile to learn more about my professional experience.r
+        a(href="#").resume__more Read more
+
+      .resume__download
+        h3.resume__download-title Download resume:
+        ul.resume__download-list
+          li.resume__download-item
+            a(href="#")
+              +icon('file-word', 'resume__download-icon')
+              | Word
+          li.resume__download-item
+            a(href="#")
+              +icon('file-alt', 'resume__download-icon')
+              | Text
+          li.resume__download-item
+            a(href="#")
+              +icon('file-code', 'resume__download-icon')
+              | Markdown
+          li.resume__download-item
+            a(href="#")
+              +icon('file-code', 'resume__download-icon')
+              | JSON
+          li.resume__download-item
+            a(href="#")
+              +icon('file-pdf', 'resume__download-icon')
+              | PDF
+          li.resume__download-item
+            a(href="#")
+              +icon('html5', 'resume__download-icon')
+              | HTML
+          li.resume__download-item
+            a(href="#")
+              +icon('file-code', 'resume__download-icon')
+              | YAML
+
+    .resume__map
+      #map
+
+  script.
+    function initMap() {
+      var uluru = {lat: -6.2315275, lng: 106.85752};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: uluru,
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+        styles: [{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}]
+      });
+
+      var image = {
+        url: 'static/images/general/map-marker.svg',
+        // This marker is 20 pixels wide by 32 pixels high.
+        size: new google.maps.Size(45, 60),
+        // The origin for this image is (0, 0).
+        origin: new google.maps.Point(0, 0),
+        // The anchor for this image is the base of the flagpole at (0, 32).
+        anchor: new google.maps.Point(22, 60)
+      };
+
+      var marker = new google.maps.Marker({
+        position: uluru,
+        icon: image,
+        map: map
+      });
+    }
+  script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4&callback=initMap")
+
+// /.resume

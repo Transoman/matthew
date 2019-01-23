@@ -105,6 +105,58 @@ jQuery(document).ready(function($) {
 
   showMoreProject();
 
+  // Read more
+  function readMore() {
+    var elem = $('.resume__content');
+    var fullHeight = $('.resume__content').innerHeight();
+    var maxHeight = 310;
+    var moreText = 'Show more';
+    var lessText = 'Hide';
+    var btn = $('.resume__more');
+
+    $(window).resize(function(event) {
+      fullHeight = $('.resume__content').innerHeight();
+      if (parseInt(elem.css('height'), 10) != fullHeight && parseInt(elem.css('height'), 10) != maxHeight) {
+        elem.css('height', maxHeight).animate({
+          height: fullHeight,
+          },
+          200, function() {
+        });
+      }
+    });
+
+    elem.css({
+      height: maxHeight
+    })
+
+    btn.click(function(e) {
+      e.preventDefault();
+
+      if (parseInt(elem.css('height'), 10) != fullHeight) {
+        elem.css('height', maxHeight).animate({
+          height: fullHeight,
+          },
+          200, function() {
+            elem.addClass('active');
+            btn.html(lessText);
+        });
+      }
+      else {
+        elem.animate({
+          height: maxHeight,
+          },
+          200, function() {
+            elem.css('height', maxHeight);
+            elem.removeClass('active');
+            btn.html(moreText);
+        });
+      }
+
+    });
+  }
+
+  readMore();
+
   var hiddenItemNav = function() {
     var nav = $('.nav-list');
     var navWidth = nav.width();

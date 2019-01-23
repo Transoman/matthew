@@ -1,0 +1,110 @@
+.resume
+  padding-top: 30px
+  +r(767)
+    padding-top: 40px
+  .container
+    position: relative
+  .section-title
+    margin-bottom: 25px
+  &__left
+    max-width: 600px
+    +r(1200)
+      max-width: 470px
+    +r(992)
+      max-width: none
+  &__content
+    position: relative
+    overflow: hidden
+    margin-bottom: 50px
+    padding-bottom: 30px
+    +trans
+    &:after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      height: 200px
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 90%,rgba(255,255,255,1) 100%)
+      +trans
+    &.active
+      &:after
+        opacity: 0
+    h3
+      font-size: 36px
+    strong
+      color: $main-color
+      span
+        color: $accent
+  &__more
+    position: absolute
+    bottom: 0
+    padding-bottom: 5px
+    font-weight: 600
+    color: $accent
+    background: url('../images/general/line.svg') repeat-x center bottom / auto 4px
+    z-index: 2
+    &:hover, &:focus
+      opacity: 0.8
+  &__download
+    &-title
+      margin-bottom: 25px
+      font-size: 30px
+    &-list
+      margin: 0
+      padding: 0
+      list-style: none
+      display: flex
+      flex-wrap: wrap
+      +r(992)
+        margin-bottom: 30px
+    &-item
+      width: 25%
+      margin-bottom: 15px
+      font-size: 18px
+      font-weight: 500
+      +r(1200)
+        width: 33.33%
+      +r(992)
+        width: 25%
+      +r(767)
+        width: 33.33%
+      +r(576)
+        width: 50%
+      a
+        color: $gray
+        padding-bottom: 7px
+        +trans(color)
+        &:hover
+          color: $sunset-orange
+          background: url('../images/general/line-red.svg') repeat-x center bottom / auto 4px
+          .resume__download-icon
+            fill: $sunset-orange
+    &-icon
+      display: inline-block
+      vertical-align: sub
+      margin-right: 15px
+      +size(15px, 20px)
+      fill: $dusty-gray
+      +trans
+  &__map
+    position: absolute
+    right: 15px
+    top: -20px
+    width: 470px
+    height: 780px
+    box-shadow: 0 20px 40px rgba($mine-shaft, 0.15)
+    +r(1200)
+      width: 400px
+      height: 670px
+    +r(992)
+      position: static
+      right: auto
+      top: auto
+      height: 300px
+      width: 100%
+    +r(576)
+      // margin: 0 -15px
+    #map
+      width: 100%
+      height: 100%
