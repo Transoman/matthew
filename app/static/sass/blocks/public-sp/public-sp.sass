@@ -10,10 +10,7 @@
     display: block
   &__item
     position: relative
-    display: flex
-    justify-content: center
-    align-items: center
-    padding: 30px
+    padding: 15px
     background:
       repeat: no-repeat
       position: center
@@ -52,11 +49,29 @@
       grid-column-end: 3
       grid-row-start: 1
       grid-row-end: 3
+      padding: 60px
       +r(1200)
         grid-column-end: 2
       +r(992)
         grid-column-end: 3
+      +r(767)
+        padding: 15px
       .public-sp
+        &__inner
+          border-width: 10px
+          &::before
+            bottom: 80px
+            right: 80px
+            width: 350px
+            height: 200px
+        &__content
+          font-size: 16px
+          +r(767)
+            font-size: 12px
+          img
+            max-width: 170px
+            +r(767)
+              max-width: 85px
         &__suptitle
           font-size: 20px
           +r(767)
@@ -67,20 +82,46 @@
             font-size: 38px
           +r(767)
             font-size: 26px
+        &__place
+          margin-bottom: 40px
     &:hover
       &::before
         opacity: 1
         visibility: visible
       .public-sp
-        &__content
+        &__inner
           opacity: 1
           visibility: visible
         &__link
           opacity: 0
           visibility: hidden
-      
+  &__inner
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    padding: 20px
+    border: 5px solid rgba(#000, 0.15)
+    opacity: 0
+    visibility: hidden
+    +trans
+    z-index: 1
+    &::before
+      content: ''
+      position: absolute
+      bottom: 20px
+      right: 20px
+      width: 170px
+      height: 100px
+      background: url(../images/general/sea.svg) no-repeat center / contain
+      opacity: 0.6
+      z-index: -1
   &__link
     position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
     display: none
     padding-bottom: 5px
     font-size: 14px
@@ -91,29 +132,32 @@
     +r(767)
       display: block
   &__content
-    opacity: 0
-    visibility: hidden
-    +trans
+    font-size: 14px
+    line-height: 21px
+    +r(1440)
+      font-size: 13px
     +r(767)
       font-size: 12px
     img
       margin-bottom: 30px
-      max-width: 170px
+      max-width: 120px
       +r(767)
         max-width: 85px
   &__suptitle
     margin-bottom: 10px
-    font-size: 18px
+    font-size: 16px
     color: #fff
     font-weight: 600
+    +r(1440)
+      font-size: 15px
     +r(767)
       font-size: 14px
   &__title
-    font-size: 38px
+    font-size: 36px
     line-height: 1
     color: #fff
     +r(1440)
-      font-size: 30px
+      font-size: 28px
     +r(767)
       font-size: 26px
   .btn
