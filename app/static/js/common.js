@@ -27,6 +27,17 @@ jQuery(document).ready(function($) {
     });
   });
 
+  new Swiper ('.testimonial-slider', {
+    spaceBetween: 200,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
   // Modal
   $('.modal').popup({
     transition: 'all 0.3s',
@@ -67,6 +78,8 @@ jQuery(document).ready(function($) {
   simpleParallax(-5, $('.parallax-2'));
   simpleParallax(5, $('.parallax-3'));
   simpleParallax(5, $('.parallax-4'));
+  simpleParallax(5, $('.parallax-6'));
+  // simpleParallax(-5, $('.parallax-7'));
 
   // Show more project
   var showMoreProject = function() {
@@ -106,16 +119,16 @@ jQuery(document).ready(function($) {
   showMoreProject();
 
   // Read more
-  function readMore() {
-    var elem = $('.resume__content');
-    var fullHeight = $('.resume__content').innerHeight();
-    var maxHeight = 310;
-    var moreText = 'Show more';
-    var lessText = 'Hide';
-    var btn = $('.resume__more');
+  function readMore(element, maxHeight = 310, showText = 'Show more',  hideText = 'Hide') {
+    var elem = element;//$('.resume__content');
+    var fullHeight = element.innerHeight();//$('.resume__content').innerHeight();
+    var maxHeight = maxHeight;
+    var moreText = showText;
+    var lessText = hideText;
+    var btn = element.find('a'); //$('.resume__more');
 
     $(window).resize(function(event) {
-      fullHeight = $('.resume__content').innerHeight();
+      fullHeight = element.innerHeight();//$('.resume__content').innerHeight();
       if (parseInt(elem.css('height'), 10) != fullHeight && parseInt(elem.css('height'), 10) != maxHeight) {
         elem.css('height', maxHeight).animate({
           height: fullHeight,
@@ -126,7 +139,8 @@ jQuery(document).ready(function($) {
     });
 
     elem.css({
-      height: maxHeight
+      height: maxHeight,
+      overflow: 'hidden'
     })
 
     btn.click(function(e) {
@@ -155,7 +169,22 @@ jQuery(document).ready(function($) {
     });
   }
 
-  readMore();
+  readMore($('.resume__content'));
+
+  var breakpoint = window.matchMedia( '(max-width: 767px)' );
+
+  var breakpointChecker = function() {
+    if ( breakpoint.matches === true ) {
+      $('.testimonial-slider__content').each(function(i, el) {
+        readMore($(el), 250, 'Read all');
+      });
+    }
+  }
+
+  breakpoint.addListener(breakpointChecker);
+
+  breakpointChecker();
+  
 
   var hiddenItemNav = function() {
     var nav = $('.nav-list');

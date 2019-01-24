@@ -8,3 +8,25 @@
       width: 30px
       background-color: $sunset-orange
       border-radius: 10px
+
+.swiper-button-next,
+.swiper-button-prev
+  width: 70px
+  height: 50px
+  background: #fff
+  box-shadow: 0 10px 30px rgba($mine-shaft, 0.15)
+  border-radius: 30px
+  display: flex
+  justify-content: center
+  align-items: center
+  +trans
+  &:hover
+    background-color: $accent
+    box-shadow: 0 10px 30px rgba($accent, 0.35)
+    svg
+      fill: #fff
+  svg
+    width: 22px
+    height: 16px
+    fill: $main-color
+    +trans

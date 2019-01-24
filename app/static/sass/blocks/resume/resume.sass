@@ -1,7 +1,10 @@
 .resume
   padding-top: 30px
+  padding-bottom: 70px
+  z-index: 2
   +r(767)
     padding-top: 40px
+    padding-bottom: 0
   .container
     position: relative
   .section-title
@@ -27,6 +30,8 @@
       height: 200px
       background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 90%,rgba(255,255,255,1) 100%)
       +trans
+      +r(767)
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba($alabaster,1) 90%,rgba($alabaster,1) 100%)
     &.active
       &:after
         opacity: 0
@@ -98,13 +103,15 @@
       width: 400px
       height: 670px
     +r(992)
-      position: static
+      position: relative
       right: auto
       top: auto
       height: 300px
-      width: 100%
+      width: auto
+    +r(767)
+      box-shadow: none
     +r(576)
-      // margin: 0 -15px
+      margin: 0 -15px
     #map
       width: 100%
       height: 100%

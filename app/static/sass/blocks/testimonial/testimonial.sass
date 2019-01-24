@@ -1,0 +1,116 @@
+.testimonial
+  padding: 145px 0 90px
+  background-color: $alabaster-2
+  overflow: hidden
+  +r(767)
+    padding: 70px 0
+  .section-title
+    margin-bottom: 40px
+    text-align: center
+    +r(767)
+      margin-bottom: 30px
+      text-align: left
+
+.testimonial-slider
+  padding: 0 170px 60px
+  +r(1200)
+    padding-right: 130px
+    padding-left: 130px
+  +r(992)
+    padding-right: 0
+    padding-left: 0
+    .swiper-button-prev,
+    .swiper-button-next
+      display: none
+  &__item
+    position: relative
+    padding: 30px
+    background-color: #fff
+    box-shadow: 0 10px 30px rgba($mine-shaft, 0.1)
+    z-index: 1
+    +r(767)
+      padding: 20px
+    &::before, &::after
+      content: ''
+      position: absolute
+      width: 60px
+      height: 50px
+      z-index: -1
+      +r(767)
+        width: 40px
+        height: 30px
+    &::before
+      bottom: 30px
+      left: 30px
+      background: url('../images/general/quote-open.svg') no-repeat center / contain
+      +r(767)
+        bottom: 20px
+        left: 20px
+        z-index: 1
+    &::after
+      top: 30px
+      right: 30px
+      background: url('../images/general/quote-close.svg') no-repeat center / contain
+      +r(767)
+        right: 20px
+        right: 20px
+  &__container
+    position: relative
+    padding-left: 130px
+    +r(767)
+      padding-left: 0
+  &__user
+    position: absolute
+    top: 0
+    left: 0
+    +size(100px)
+    +r(767)
+      +size(80px)
+  &__head
+    +r(767)
+      min-height: 105px
+      padding-left: 110px
+  &__name
+    margin-bottom: 0
+    font-size: 30px
+    +r(767)
+      font-size: 24px
+  &__position
+    margin: 0
+    font-size: 16px
+    font-weight: 600
+    color: $accent
+    +r(767)
+      font-size: 14px
+  &__content
+    position: relative
+    padding-bottom: 30px
+    +trans
+    +r(767)
+      &:after
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        height: 200px
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 90%,rgba(255,255,255,1) 100%)
+        +trans
+        +r(767)
+          // background-image: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba($alabaster,1) 90%,rgba($alabaster,1) 100%)
+    &.active
+      &:after
+        opacity: 0
+    a
+      display: none
+      position: absolute
+      bottom: 0
+      padding-bottom: 5px
+      font-weight: 600
+      color: $accent
+      background: url('../images/general/line.svg') repeat-x center bottom / auto 4px
+      z-index: 2
+      +r(767)
+        display: block
+      &:hover, &:focus
+        opacity: 0.8
