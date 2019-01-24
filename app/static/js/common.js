@@ -195,6 +195,7 @@ jQuery(document).ready(function($) {
     var hiddenWidth = 0;
     var maxWidth = 500;
     var arrIndexHidden = [];
+    var arrElHidden = [];
   
     if (navWidth > maxWidth) {
       nav.find('li').each(function(i, el) {
@@ -206,12 +207,20 @@ jQuery(document).ready(function($) {
             $(this).hide();
             hiddenWidth += $(this).width();
             arrIndexHidden.push(i);
+            arrElHidden.push(el);
         }
       });
 
+      console.log(arrElHidden);
+
       nav.append('<li class="nav-list__drop"><a href="#">. . .</a></li>');
+      $('.nav-list__drop').append('<ul></ul>');
+
+      arrElHidden.forEach(function(item, i, arrElHidden) {
+        $('.nav-list__drop ul').append(item);
+        $('.nav-list__drop ul li').show();
+      });
     }
-    
   
     // $('.nav-list__drop a').click(function(e) {
     //   e.preventDefault();
