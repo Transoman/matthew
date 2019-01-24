@@ -3,16 +3,20 @@
   padding: 0
   list-style: none
   display: flex
+  flex-wrap: wrap
   align-items: center
   & > *:not(:last-child)
     margin-right: 30px
   li
+    margin-bottom: 15px
     a
       display: flex
       align-items: center
       font-size: 14px
       color: #fff
+      &:hover
+        color: rgba(#fff, 0.8)
   &__icon
     margin-right: 10px
-    +size(12px)
+    +size(14px)
     fill: $minsk
