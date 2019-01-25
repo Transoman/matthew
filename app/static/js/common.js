@@ -119,65 +119,21 @@ jQuery(document).ready(function($) {
   showMoreProject();
 
   // Read more
-  function readMore(element, maxHeight, showText, hideText) {
-    var elem = element;//$('.resume__content');
-    var fullHeight = element.innerHeight();//$('.resume__content').innerHeight();
-    var maxHeight = maxHeight != undefined ? maxHeight : 310;
-    var moreText = showText != undefined ? showText : 'Read more';
-    var lessText = hideText != undefined ? hideText : 'Hide';
-    var btn = element.find('a'); //$('.resume__more');
-
-    $(window).resize(function(event) {
-      fullHeight = element.innerHeight();//$('.resume__content').innerHeight();
-      if (parseInt(elem.css('height'), 10) != fullHeight && parseInt(elem.css('height'), 10) != maxHeight) {
-        elem.css('height', maxHeight).animate({
-          height: fullHeight,
-          },
-          200, function() {
-        });
-      }
-    });
-
-    elem.css({
-      height: maxHeight,
-      overflow: 'hidden'
-    })
-
-    btn.click(function(e) {
-      e.preventDefault();
-
-      if (parseInt(elem.css('height'), 10) != fullHeight) {
-        elem.css('height', maxHeight).animate({
-          height: fullHeight,
-          },
-          200, function() {
-            elem.addClass('active');
-            btn.html(lessText);
-        });
-      }
-      else {
-        elem.animate({
-          height: maxHeight,
-          },
-          200, function() {
-            elem.css('height', maxHeight);
-            elem.removeClass('active');
-            btn.html(moreText);
-        });
-      }
-
-    });
-  }
-
-  readMore($('.resume__content'));
-
   var breakpoint = window.matchMedia( '(max-width: 767px)' );
 
   var breakpointChecker = function() {
     if ( breakpoint.matches === true ) {
-      $('.testimonial-slider__content').each(function(i, el) {
-        readMore($(el), 250, 'Read all');
+      $('.testimonial-slider__content').readmore({
+        moreLink: '<a href="#" class="resume__more">Read all</a>',
+        lessLink: '<a href="#" class="resume__more">Hide</a>',
+        collapsedHeight: 250,
+        beforeToggle: function(trigger, element, expanded) {
+          element.toggleClass('active');
+        }
       });
+    }
+    else {
+      $('.testimonial-slider__content').readmore('destroy');
     }
   }
 
@@ -185,9 +141,19 @@ jQuery(document).ready(function($) {
 
   breakpointChecker();
 
+  $('.resume__content').readmore({
+    moreLink: '<a href="#" class="resume__more">Read more</a>',
+    lessLink: '<a href="#" class="resume__more">Hide</a>',
+    collapsedHeight: 310,
+    beforeToggle: function(trigger, element, expanded) {
+      element.toggleClass('active');
+   }
+  });
+
   // Fixed map
-  var navbar =  $('.article__map-container');  // navigation block
-  var wrapper = $('.article__wrap');        // may be: navbar.parent();
+  var navbar =  $('.article__map-container');
+  var wrapper = $('.article__wrap');
+  var sLeft = navbar.offset().left;
 
   $(window).scroll(function(){
     if ($(window).width() > 992) {
@@ -197,9 +163,9 @@ jQuery(document).ready(function($) {
       var widthWindow = $('body').prop("clientWidth");
       var width = (widthWindow - wrapper.outerWidth()) / 2;
 
-      if (nsc>bp1) { navbar.addClass('fixed').css('right', width); }
+      if (nsc>bp1) { navbar.addClass('fixed').css('left', width); }
       else { navbar.removeClass('fixed'); }
-      if (nsc>bp2) { navbar.css({'top': bp2-nsc, 'right': width}); }
+      if (nsc>bp2) { navbar.css({'top': bp2-nsc, 'left': width}); }
       else { navbar.css('top', '0'); }
     }
   });

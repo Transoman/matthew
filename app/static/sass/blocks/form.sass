@@ -10,6 +10,8 @@
     border: 1px solid $melrose
     border-radius: 6px
     color: $main-color
+    box-shadow: none
+    appearance: none
     +trans
     +r(767)
       padding: 12px 15px
@@ -67,3 +69,13 @@
     font-weight: 500
     +r(767)
       font-size: 14px
+  input[type="date"]:before
+    content: attr(placeholder) !important
+    width: 100%
+    color: $dusty-gray
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before
+    content: ""
+    width: 0%
+    display: none
+  
