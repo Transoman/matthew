@@ -163,9 +163,9 @@ jQuery(document).ready(function($) {
       var widthWindow = $('body').prop("clientWidth");
       var width = (widthWindow - wrapper.outerWidth()) / 2;
 
-      if (nsc>bp1) { navbar.addClass('fixed').css('left', width); }
+      if (nsc>bp1) { navbar.addClass('fixed').css('right', width); }
       else { navbar.removeClass('fixed'); }
-      if (nsc>bp2) { navbar.css({'top': bp2-nsc, 'left': width}); }
+      if (nsc>bp2) { navbar.css({'top': bp2-nsc, 'right': width}); }
       else { navbar.css('top', '0'); }
     }
   });
