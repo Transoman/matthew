@@ -25,7 +25,6 @@
   list-style: none
   display: flex
   align-items: center
-  // overflow: hidden
   max-width: 600px
   +r(992)
     flex-direction: column
@@ -56,15 +55,24 @@
       background-color: rgba(#fff, 0.8)
       border-radius: 10px
       display: none
-  &__drop
-    & > a
-      font-weight: 900
-      color: $sunset-orange
+      +r(992)
+        display: block
+        padding: 0
+        position: static
+        background: none
+        border-radius: 0
+        min-width: auto
   a
     display: block
     padding-bottom: 5px
     font-weight: 500
     transition: none
+  &__drop
+    & > a
+      font-weight: 900
+      color: $sunset-orange
+      +r(992)
+        display: none
 
 .nav-toggle
   display: none
@@ -105,6 +113,10 @@
     &::after
       top: 6px
   &.active
+    +rmin(577)
+      position: absolute
+      top: 20px
+      right: 20px
     .nav-toggle__line
       background: transparent
       &::after

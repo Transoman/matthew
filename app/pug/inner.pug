@@ -1,0 +1,10 @@
+extends template/main
+
+block variables
+  - var title = 'Inner'
+  - var pageClass = ''
+  - var headerClass = ' header--inner'
+
+block content
+  include pages/inner/hero
+  include pages/inner/article

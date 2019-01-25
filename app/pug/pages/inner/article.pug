@@ -1,0 +1,73 @@
+section.article
+  .container
+    .article__wrap
+      .article__content
+        .article__head
+          img(src="static/images/content/article-logo.png", alt="").article__logo
+
+          p.article__place Manama, Bahrain | November, 2018
+          p.article__event World Islamic FinTech Award 2018
+          h1.article__title "Blossom Wins World Islamic FinTech Award"
+          p.article__theme Blockchain for Islamic Finance
+
+        .article__text
+          p <strong>MANAMA, Bahrain</strong> ― Ethical investment platform Blossom Finance won "Most Innovative Use of Blockchain for Islamic Finance" at the World Islamic FinTech Awards (WIFA) for its SmartSukuk™ platform. Blossom's digital platform for sukuk using blockchain dramatically increases the accessibility of sukuk financing using digital technology by reducing the complexity and cost previously required to issue and invest in sukuk.
+          p WIFA finalists were evaluated and scored by a panel of international judges that included various industry experts, stakeholders, and influencers.
+          p "Public sukuk markets have been inaccessible to smaller issuers and investors due to the huge fees of various middleman. Using blockchain, we've removed the inefficiency from the process" noted Chief Strategy and Risk Officer Khalid Howladar.
+          p "To date, much of the complexity and legal cost is a direct result of industry practictioners trying to replicate fixed-income, debt-based instruments. Our digital sukuk is unique not only in that it uses blockchain, but also that it is equity-based and asset backed."
+          img(src="static/images/content/article-img.jpg", alt="")
+
+          blockquote
+            p "Our digital sukuk is unique not only in that it   uses blockchain, but also that it is equity-based and asset backed."
+            cite Chief Strategy & Risk Officer, Khalid Howladar
+
+          p "We're pleased that the industry experts recognize sukuk on the blockchain for the big leap forward that it is. Our technology enables sukuk for issuers and investors of any size with dramatically improved efficiency and reduced costs" noted CEO Matthew J. Martin.
+          p The awards ceremony concluded the Global Islamic Fintech Huddle, an international gathering of industry influencers and fintech visionaries passionate about using technology to drive financial inclusion in a Shariah compliant and ethical manner which was hosted by Islamic Finance News.
+          p The full list of award recepients is available here: 
+          a(href="https://redmoneyevents.com/main/event.asp?IFN=ifnbahrain18", target="_blank") https://redmoneyevents.com/main/event.asp?IFN=ifnbahrain18
+
+        a(href="#").btn Book a Press Interview
+
+      .article__map-wrap
+        .article__map-container
+          .article__map
+            #map
+          p.article__map-place
+            +icon('map-marker')
+            | Venue: Wyndham Grand Manama, <br>Bahrain
+
+
+  script.
+    function initMap() {
+      var uluru = {lat: -6.2315275, lng: 106.85752};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: uluru,
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false,
+        styles: [{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}]
+      });
+
+      var image = {
+        url: 'static/images/general/map-marker.svg',
+        // This marker is 20 pixels wide by 32 pixels high.
+        size: new google.maps.Size(45, 60),
+        // The origin for this image is (0, 0).
+        origin: new google.maps.Point(0, 0),
+        // The anchor for this image is the base of the flagpole at (0, 32).
+        anchor: new google.maps.Point(22, 60)
+      };
+
+      var marker = new google.maps.Marker({
+        position: uluru,
+        icon: image,
+        map: map
+      });
+    }
+  script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4&callback=initMap")
+
+// /.article

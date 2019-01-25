@@ -41,9 +41,6 @@ jQuery(document).ready(function($) {
   // Modal
   $('.modal').popup({
     transition: 'all 0.3s',
-    onopen: function() {
-      // slider.update();
-    },
     onclose: function() {
       $(this).find('label.error').remove();
     }
@@ -53,9 +50,11 @@ jQuery(document).ready(function($) {
   function fixedHeader() {
     if($(this).scrollTop() > 50) {
       $('.header').addClass('fixed');
+      $('.hero--inner').addClass('fixed');
     }
     else {
       $('.header').removeClass('fixed');
+      $('.hero--inner').removeClass('fixed');
     }
   }
 
@@ -81,7 +80,6 @@ jQuery(document).ready(function($) {
   simpleParallax(5, $('.parallax-5'));
   simpleParallax(-5, $('.parallax-6'));
   simpleParallax(5, $('.parallax-7'));
-  // simpleParallax(-5, $('.parallax-7'));
 
   // Show more project
   var showMoreProject = function() {
@@ -121,12 +119,12 @@ jQuery(document).ready(function($) {
   showMoreProject();
 
   // Read more
-  function readMore(element, maxHeight = 310, showText = 'Show more',  hideText = 'Hide') {
+  function readMore(element, maxHeight, showText, hideText) {
     var elem = element;//$('.resume__content');
     var fullHeight = element.innerHeight();//$('.resume__content').innerHeight();
-    var maxHeight = maxHeight;
-    var moreText = showText;
-    var lessText = hideText;
+    var maxHeight = maxHeight != undefined ? maxHeight : 310;
+    var moreText = showText != undefined ? showText : 'Read more';
+    var lessText = hideText != undefined ? hideText : 'Hide';
     var btn = element.find('a'); //$('.resume__more');
 
     $(window).resize(function(event) {
@@ -186,56 +184,53 @@ jQuery(document).ready(function($) {
   breakpoint.addListener(breakpointChecker);
 
   breakpointChecker();
-  
 
-  var hiddenItemNav = function() {
-    var nav = $('.nav-list');
-    var navWidth = nav.width();
-    var allWidth = 0;
-    var hiddenWidth = 0;
-    var maxWidth = 500;
-    var arrIndexHidden = [];
-    var arrElHidden = [];
-  
-    if (navWidth > maxWidth) {
-      nav.find('li').each(function(i, el) {
-        
-        if (allWidth + $(this).next().width() < maxWidth) {
-          allWidth += $(this).width();
-        }
-        else {
-            $(this).hide();
-            hiddenWidth += $(this).width();
-            arrIndexHidden.push(i);
-            arrElHidden.push(el);
-        }
-      });
+  // Fixed map
+  var navbar =  $('.article__map-container');  // navigation block
+  var wrapper = $('.article__wrap');        // may be: navbar.parent();
 
-      console.log(arrElHidden);
+  $(window).scroll(function(){
+    if ($(window).width() > 992) {
+      var nsc = $(document).scrollTop();
+      var bp1 = wrapper.offset().top;
+      var bp2 = bp1 + wrapper.outerHeight()-$(window).height();
+      var widthWindow = $('body').prop("clientWidth");
+      var width = (widthWindow - wrapper.outerWidth()) / 2;
 
-      nav.append('<li class="nav-list__drop"><a href="#">. . .</a></li>');
-      $('.nav-list__drop').append('<ul></ul>');
-
-      arrElHidden.forEach(function(item, i, arrElHidden) {
-        $('.nav-list__drop ul').append(item);
-        $('.nav-list__drop ul li').show();
-      });
+      if (nsc>bp1) { navbar.addClass('fixed').css('right', width); }
+      else { navbar.removeClass('fixed'); }
+      if (nsc>bp2) { navbar.css({'top': bp2-nsc, 'right': width}); }
+      else { navbar.css('top', '0'); }
     }
-  
-    // $('.nav-list__drop a').click(function(e) {
-    //   e.preventDefault();
-    //   arrIndexHidden.forEach(function(item, i, arrIndexHidden) {
-    //     console.log(item)
-    //   });
-    //   // nav.css('transform', 'translateX(-'+ hiddenWidth +'px)');
-    // });
-  }
-
-  hiddenItemNav();
-
-  $(window).resize(function() {
-    hiddenItemNav();
   });
+
+  $('a[href*="#"]')
+    // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+      // On-page links
+      if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+        && 
+        location.hostname == this.hostname
+      ) {
+        // Figure out element to scroll to
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        // Does a scroll target exist?
+        if (target.length) {
+          // Only prevent default if animation is actually gonna happen
+          event.preventDefault();
+          var headerH = $('header').outerHeight();
+          $('.nav-toggle').removeClass('active');
+          $('.header__nav').removeClass('open');
+          $('html, body').animate({
+            scrollTop: target.offset().top - headerH
+          }, 1000);
+        }
+      }
+    });
 
   // SVG
   svg4everybody({});
