@@ -152,23 +152,25 @@ jQuery(document).ready(function($) {
 
   // Fixed map
   var navbar =  $('.article__map-container');
-  var wrapper = $('.article__wrap');
-  var sLeft = navbar.offset().left;
-
-  $(window).scroll(function(){
-    if ($(window).width() > 992) {
-      var nsc = $(document).scrollTop();
-      var bp1 = wrapper.offset().top;
-      var bp2 = bp1 + wrapper.outerHeight()-$(window).height();
-      var widthWindow = $('body').prop("clientWidth");
-      var width = (widthWindow - wrapper.outerWidth()) / 2;
-
-      if (nsc>bp1) { navbar.addClass('fixed').css('right', width); }
-      else { navbar.removeClass('fixed'); }
-      if (nsc>bp2) { navbar.css({'top': bp2-nsc, 'right': width}); }
-      else { navbar.css('top', '0'); }
-    }
-  });
+  if (navbar.length) {
+    var wrapper = $('.article__wrap');
+    var sLeft = navbar.offset().left;
+  
+    $(window).scroll(function(){
+      if ($(window).width() > 992) {
+        var nsc = $(document).scrollTop();
+        var bp1 = wrapper.offset().top;
+        var bp2 = bp1 + wrapper.outerHeight()-$(window).height();
+        var widthWindow = $('body').prop("clientWidth");
+        var width = (widthWindow - wrapper.outerWidth()) / 2;
+  
+        if (nsc>bp1) { navbar.addClass('fixed').css('right', width); }
+        else { navbar.removeClass('fixed'); }
+        if (nsc>bp2) { navbar.css({'top': bp2-nsc, 'right': width}); }
+        else { navbar.css('top', '0'); }
+      }
+    });
+  }
 
   $('a[href*="#"]')
     // Remove links that don't actually link to anything
